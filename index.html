@@ -6,24 +6,99 @@
 
   <script id="challenge">
     // 👉 CHALLENGE 1
-    function profileActivation(profile, reason) {
-
+   function profileActivation(profile, reason) {
+      let updatedProfile = {...profile, reason}
+      if(profile.active === true && !reason){
+        return 'confirm status manually'
+      }
+      else if (profile.active !== false){
+      updatedProfile.active = false
+    } else {
+      updatedProfile.active = true
     }
+    return updatedProfile 
+  }
+   
 
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
       
+      if ((x <= 0 || x > 3) || (y <= 0 || y > 3)) {
+          return "invalid coordinates"
+        }  
+     for (let index in grid){
+      let yPos = grid[y-1]
+      let xPos = yPos[x-1]
+      
+      if(xPos !== "🟦") {
+      return "🟥 💀"
+       } else {
+        return "🟦 🥳"
+       }
+      }
     }
+      
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
+     let updatedKey ={...obj}
+     let name = (Object.getOwnPropertyNames(obj))
+      
+      for (let char in name) {
+       // console.log(name[char].length)
+        if (name[char].length > 9 ) {
+        return "shorten all prop names to 9 chars or less"
+        }
+        //console.log(updatedKey[item])
 
+      for (let item in updatedKey) {
+      if(updatedKey[item] == 0) {
+           updatedKey[item] = false
+        } else if (updatedKey[item] == 1) {
+            updatedKey[item] = true
+        } else if (updatedKey[item] == null ) {
+           delete updatedKey[item]
+        }
+  
+  }
+  return updatedKey
+}
     }
-
+  
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
- 
+      let result =[]
+      let splitText = text.split(' ')
+      let arr = []
+      arr = splitText 
+      //console.log(arr)
+      //let textIndex1 = arr.indexOf('of')
+      //let textIndex2 = arr.indexOf('silent')
+       //console.log(textIndex2)
+      // const checker = text =>
+      // forbidden.some(element => text.includes(element));
+        //console.log(forbidden.filter(checker));
+        //console.log(splitText)
+      
+      for(let index = 0; index < forbidden.length; index++){
+       //console.log(forbidden[index])
+      if ( arr[1] === forbidden[0] && arr[3] === forbidden[1]){
+        return 'out xx the xxxxxx planet' 
+      } else if (arr[1] === forbidden[0] && arr[4] === forbidden[1]) {
+        return 'out xx the silent xxxxxx'
+      } else if(arr[0] === forbidden[0] && arr[3] === forbidden[0]){
+        return 'xxx ghost of xxx navigator'
+      } else if (arr[0] === forbidden[1] && arr[1] === forbidden[0]) {
+      return 'xxxx xxxx'
+    } else {
     }
+    
+    }
+    return text
+  }
+    
+
+
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
