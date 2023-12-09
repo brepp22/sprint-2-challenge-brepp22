@@ -102,21 +102,27 @@
 
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
-      for (let i = 0; i <= num.length; i++) {
-      //console.log(num[i])
+      
+     for(let i = 0; i <= num.length; i++) {
+    // console.log(num[i])
       let arr = []
-      arr = num 
+      let result = []
+      arr = num
       //console.log(arr)
 
-      let areaCode = arr[i].slice(0-3)
-      console.log(areaCode)
-      let three = arr[i].slice(3-6)
-      //console.log(three)
-      let four = arr[i].slice(6)
-      //console.log(four)
+      let area = arr.slice(0, 3)
+      let firstThree = arr.slice(3, 6)
+      let lastFour = arr.slice(6)
+
+      result = `(${area}) ${firstThree}-${lastFour}`
+      console.log(result)
+      return result
       }
-      
+     
     }
+  
+    
+  
 
     // 👉 CHALLENGE 6 (bonus, NOT graded)
     function diceRolls() {
